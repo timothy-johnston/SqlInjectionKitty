@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Git Branching Demo</title>
+
+    <!-- <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/> -->
+    <link rel="stylesheet" th:href="@{/styles/index.css}"/>
+
+</head>
+
+    <body>
+        <section id="section-header" class="section">
+            <div id="header-content-container">
+                <div id="app-details-container" class="header-object">
+                    <img id="app-logo">
+                    <p id="app-title">SQL Injection Kitty</p>
+                </div>
+                <p class="header-object">
+                    <a>Submit a Message</a>
+                </p>
+                <p class="header-object">
+                    <a>View Guest Log</a>
+                <p>
+            </div>
+        </section>
+        <section id="section-landing" class="section">
+            <video></video>
+        </section>
+        <section id="section-prompt" class="section">
+            <div id="prompt-container">
+                <p id="prompt-title" class="prompt-text">Welcome to SQL Injection Kitty!</p>
+                <p id="prompt-subtitle" class="prompt-text">Why don't you write an entry in our guest log below?</p>
+            </div>
+            <div id="log-form-container">
+                <form id="log-form">
+                    <div class="form-input-container">
+                        <label>Your Name:</label>
+                        <input id="input-user" type="text"> 
+                    </div>
+                    <div class="form-input-container">
+                        <label>Your Message:</label>
+                        <input id="input-message" type="text"> 
+                    </div>
+                    <div class="btn-submit-container">
+                        <button id="btn-submit-prepared" class="btn-submit-entry" type="button" value="Submit">Submit with the Prepared Statement Kitty</button>
+                        <img class="btn-submit-image">
+                    </div>
+                    <div class="btn-submit-container">
+                        <button id="btn-submit-injection" class="btn-submit-entry" type="button" value="Submit">Submit with the SQL Injection Kitty</button>
+                        <img class="btn-submit-image">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section id="section-log" class="section">
+            <div id="log-container">
+                <div id="log-loading-container">
+                    <i></i>
+                    <p>Loading guest log entires . . . </p>;
+                </div>
+                <div id="log-table-container">
+                </div>
+            </div>
+        </section>
+        <section id="section-footer" class="section">
+            <div id="footer-content-container">
+                <div id="about-container" class="footer-object">
+
+                </div>
+                <div id="contact-container" class="footer-object">
+                    <div id="social-container">
+                        <i class="social-icon"></i>
+                        <i class="social-icon"></i>
+                    </div>
+                    <div id="contact-info-container">
+                        <p class="contact-info">By Tim Johnston</p>
+                    </div>
+                </div>
+            </div>
+        </section>  
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/js/home.js"></script>
+
+</html>

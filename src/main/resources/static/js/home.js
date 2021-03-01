@@ -42,7 +42,7 @@ function submitLogEntry(clickedButton) {
     //Determine whether to write to database with or without prepared statement
     if ($(clickedButton).attr("id") === "btn-submit-prepared") {
         entry["submitType"] = "Prepared";
-    } else if ($(clickedButton).attr("id") === "btn-submit-prepared") {
+    } else if ($(clickedButton).attr("id") === "btn-submit-injection") {
         entry["submitType"] = "Injection";
     } else {
         console.error("I award you no points, and may God have mercy on your soul.")

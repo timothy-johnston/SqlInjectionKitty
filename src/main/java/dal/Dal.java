@@ -137,7 +137,7 @@ public class Dal {
 		}
 		
 		try {
-			ResultSet result = statement.executeQuery(sql);
+			statement.execute(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

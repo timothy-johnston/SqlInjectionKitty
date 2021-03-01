@@ -128,6 +128,8 @@ public class Dal {
 		
 		String sql = "INSERT INTO log_entries (name, message) VALUES ('" + name + "', '" + message + "')";
 		
+		System.out.println(sql);
+		
 		Statement statement = null;
 		try {
 			statement = conn.createStatement();

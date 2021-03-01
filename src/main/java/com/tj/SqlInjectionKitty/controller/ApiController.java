@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tj.SqlInjectionKitty.model.LogEntry;
 
+import dal.Dal;
+
 @RestController
 public class ApiController {
-
 	
+	Dal dal = new Dal();
+
 	@PostMapping("/api/submit-entry")
 	public String handleSubmitEntry(@RequestBody LogEntry submission) {
 		

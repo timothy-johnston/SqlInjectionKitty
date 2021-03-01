@@ -1,6 +1,7 @@
 package com.tj.SqlInjectionKitty.controller;
 
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,10 @@ public class ApiController {
 		submission.getMessage();
 		submission.getName();
 		submission.getSubmitType();
+		
+
+		dal.persistEntry(submission);
+		
 		
 		System.out.println(submission.getSubmitType());
 		

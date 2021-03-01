@@ -68,7 +68,7 @@ public class Dal {
 		
 	}
 	
-	public String persistEntry(LogEntry submission) throws SQLException {
+	public String persistEntry(LogEntry submission){
 		
 		String response = null;
 		
@@ -87,25 +87,40 @@ public class Dal {
 	}
 	
 	//https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
-	private String persistWithParameterizedQuery(LogEntry submission) throws SQLException {
+	//Refer to this documentation for retrieving the id of an isert: https://www.codejava.net/java-se/jdbc/get-id-of-inserted-record-in-database
+	private String persistWithParameterizedQuery(LogEntry submission) {
 		
 		String name = submission.getName();
 		String message = submission.getMessage();
 		
-		String sql = "INSERT INTO log_entries (name, message) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO log_entries (name, message) VALUES (?, ?)";
 		
-		PreparedStatement statement = conn.prepareStatement(sql);
+		PreparedStatement statement = null;
+		try {
+			statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			statement.setString(1, name);
+			statement.setString(2, message);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		statement.setString(1, name);
-		statement.setString(2, message);
 		
+		try {
+			statement.execute();
+//			ResultSet result = statement.executeQuery();
+//			ResultSet result = statement.getGeneratedKeys();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
 		return "string";
 	}
 	
-	private String persistWithoutParameterizedQuery(LogEntry submission) throws SQLException {
+	private String persistWithoutParameterizedQuery(LogEntry submission) {
 		
 		
 		String name = submission.getName();
@@ -113,8 +128,20 @@ public class Dal {
 		
 		String sql = "INSERT INTO log_entries (name, message) VALUES ('" + name + "', '" + message + "')";
 		
-		Statement statement = conn.createStatement();
-		ResultSet result = statement.executeQuery(sql);
+		Statement statement = null;
+		try {
+			statement = conn.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			ResultSet result = statement.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		

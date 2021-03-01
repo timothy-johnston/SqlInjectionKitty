@@ -26,6 +26,8 @@ public class ApiController {
 		submission.getName();
 		submission.getSubmitType();
 		
+		System.out.println(submission.getSubmitType());
+		
 		return "a json representation of the submitted entry, or just its id";
 		
 	}

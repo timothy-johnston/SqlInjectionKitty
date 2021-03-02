@@ -24,6 +24,21 @@
 	margin: 0px;
 } */
 
+body {
+	font-family: 'Quicksand', sans-serif;
+}
+
+p {
+	color: hsl(210, 24%, 16%);
+}
+
+#background-pane {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	background: linear-gradient(144deg, hsl(172, 82%, 94%), hsl(180, 77%, 47%) 99%);
+	z-index: -1;
+}
 
 #section-landing {
 	height: 100vh;
@@ -61,6 +76,7 @@
 
 #log-header {
 	align-self: center;
+	font-weight: bold;
 }
 
 #log-table {
@@ -72,7 +88,7 @@
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: hsl(180, 77%, 47%, .75);
 }
 
 td {
@@ -127,6 +143,10 @@ td, th {
 .btn-submit-entry {
 	padding: 0px 35px;
 	border: none;
+	background: hsl(209, 18%, 30%);
+	color: white;
+	font-size: 18px;
+	border-radius: 6px;
 }
 
 .btn-submit-image {
@@ -134,7 +154,6 @@ td, th {
 }
 
 #footer-content-container {
-	border: 2px solid red;
 	display: flex;
 	justify-content: center;
 	align-items: center;

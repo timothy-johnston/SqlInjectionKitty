@@ -27,6 +27,18 @@ $(document).ready(function() {
 //to null here and in the controller and will cause ALL entries to be returned
 function loadLogEntries(entryId = null) {
 
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://localhost:8080/api/get-entries",
+        success: function(data) {
+            generateLogTable(JSON.parse(data));
+        },
+        error: function(xhr, status, error) {
+            handleFailedRequest(xhr, status, error);
+        }
+    })
+
 }
 
 //Submits with a POST request a user's log entry. Accepts one argument, the clicked button, which is used
@@ -70,9 +82,27 @@ function submitLogEntry(clickedButton) {
 
 //Append log entries to to the guest log <table> so they display on the page
 //Accepts one argument, an array of entries to be displayed
-//function appendLogEntries(logEntries) {
+function generateLogTable(entries) {
 
-//}
+    for (entry of entries) {
+        var name = entry.name;
+        var message = entry.message;
+
+
+        var html = `
+            <tr>
+                <td>` + name + `</td>
+                <td>` + message + `</td>
+            </tr>
+        `
+
+        var table = document.querySelector("#log-table");
+
+        table.insertAdjacentHTML('beforeend', html);
+
+    }
+
+}
 
 //Dynamically create and return html which will represent a new row in the guest log table displayed in the ui
 //function buildTableRowHtml(logEntry) {

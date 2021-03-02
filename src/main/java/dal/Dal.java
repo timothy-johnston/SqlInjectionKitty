@@ -54,17 +54,17 @@ public class Dal {
 		String sql = "SELECT * FROM log_entries";
 		
 		PreparedStatement statement = conn.prepareStatement(sql);
-		ResultSet result = statement.executeQuery(sql);
+		ResultSet result = statement.executeQuery();
 		
-		List<LogEntry> entry = new ArrayList<LogEntry>();
+		List<LogEntry> entries = new ArrayList<LogEntry>();
 		while (result.next()) {
 			String name = result.getString("name");
 			String message = result.getString("message");
 			String entryId = result.getString("id");
-			entry.add(new LogEntry(name, message, Integer.parseInt(entryId), null));
+			entries.add(new LogEntry(name, message, Integer.parseInt(entryId), null));
 		}
 		
-		return gson.toJson(entry);
+		return gson.toJson(entries);
 		
 	}
 	

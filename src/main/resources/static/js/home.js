@@ -70,7 +70,8 @@ function submitLogEntry(clickedButton) {
         data: entryJson,
         success: function(data) {
             console.log("Request successful.");
-            console.log(data)
+            console.log(data);
+            loadLogEntries();
         },
         error: function(xhr, status, error) {
             handleFailedRequest(xhr, status, error);
@@ -84,19 +85,28 @@ function submitLogEntry(clickedButton) {
 //Accepts one argument, an array of entries to be displayed
 function generateLogTable(entries) {
 
+    var rows = document.querySelectorAll(".table-row");
+
+    if (rows != null) {
+        for (row of rows) {
+            row.parentNode.removeChild(row);
+        }
+    }
+    
+
     for (entry of entries) {
         var name = entry.name;
         var message = entry.message;
 
 
         var html = `
-            <tr>
+            <tr class="table-row">
                 <td>` + name + `</td>
                 <td>` + message + `</td>
             </tr>
         `
 
-        var table = document.querySelector("#log-table");
+        var table = document.querySelector("#log-table tbody");
 
         table.insertAdjacentHTML('beforeend', html);
 

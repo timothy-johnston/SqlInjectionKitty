@@ -50,9 +50,11 @@ public class ApiController {
 	}
 	
 	@GetMapping("/api/get-entries")
-	public String handleGetEntries() {
+	public String handleGetEntries() throws SQLException {
 		
-		return "json representation of all entries";
+		String entriesJson = dal.getAllEntries();
+		
+		return entriesJson;
 		
 	}
 

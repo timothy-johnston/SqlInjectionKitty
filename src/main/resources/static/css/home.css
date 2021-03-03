@@ -76,7 +76,7 @@ p {
 
 #log-header {
 	align-self: center;
-	font-weight: bold;
+	font-size: 28px;
 }
 
 #log-table {
@@ -96,7 +96,6 @@ td {
 }
 
 td, th {
-	border: 1px solid black;
 	padding: 10px;
 }
 
@@ -127,8 +126,24 @@ td, th {
 	margin-right: auto;
 }
 
+.form-input {
+	border: none;
+	transition-duration: .5s;
+	box-shadow: 2px 2px 2px #3f4d5a;
+	border-radius: 3px;
+}
+
+.form-input:focus {
+	transistion: scale(1.05);
+	outline: none;
+}
+
+#message-input-container {
+	margin-top: 15px;
+}
+
 #input-message {
-	height: 250px
+	height: 250px;
 }
 
 #btn-submit-container {
@@ -147,6 +162,7 @@ td, th {
 	color: white;
 	font-size: 18px;
 	border-radius: 6px;
+	box-shadow: 5px 5px 5px #000000d1
 }
 
 .btn-submit-image {
@@ -157,10 +173,12 @@ td, th {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background: hsl(210, 24%, 16%);
 }
 
 #about-container {
 	width: 45%;
 	text-align: center;
-	padding: 50px;
+	padding: 75px;
+	color: #cbf7f5;
 }
